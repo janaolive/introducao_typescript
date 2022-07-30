@@ -1,10 +1,12 @@
 import { User } from '../interfaces/user.interface';
 import UserModel from '../models/user.model';
+import generateToken from '../middlewares/generateToken';
 
 const UserService = {
   addUser: async (user: User) => {
-    const newUser = await UserModel.addUser(user);
-    return newUser;
+    const { id, username } = await UserModel.addUser(user);
+    const token = generateToken({ id, username });
+    return { token };
   },
 };
 
