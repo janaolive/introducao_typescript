@@ -6,12 +6,14 @@ const ProductService = {
     const newProduct = await ProductModel.addProduct(product);
     return newProduct;
   },
+
+  getAll: async () => {
+    const products = await ProductModel.getAll();
+    return products;
+  },
+  
 };
 
-// async getAll(): Promise<Product[]> {
-//   const products = await ProductModel.getAll();
-//   return products;
-// },
 // async getById(id: Product['id']): Promise<Product> {
 //   const product = await ProductModel.getById(id);
 //   return product;

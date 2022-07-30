@@ -9,6 +9,11 @@ const ProductControler = {
     const newProduct = await ProductService.addProduct(product);
     res.status(201).json(newProduct);
   },
+
+  getAll: async (_req: Request, res: Response) => {
+    const products = await ProductService.getAll();
+    res.json(products);
+  },
 };
 
 export default ProductControler;

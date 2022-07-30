@@ -1,4 +1,4 @@
-import { ResultSetHeader } from 'mysql2';
+import { ResultSetHeader, RowDataPacket } from 'mysql2';
 import connection from './connection';
 import { Product } from '../interfaces/product.interface';
 
@@ -12,13 +12,13 @@ const ProductModel = {
     return { id: newProduct.insertId, name, amount };
   },
 
+  getAll: async () => {
+    const [products] = await connection.execute<RowDataPacket[]>(
+      'SELECT * FROM Trybesmith.Products;',
+    );
+    return products;
+  },
 };
-
-// async getAll(): Promise<Product[]> {
-//   const sql = 'SELECT * FROM Trybesmith.Products';
-//   const [rows] = await connection.query(sql);
-//   return rows as Product[];
-// },
 
 // async getById(id: Product['id']): Promise<Product> {
 //   const sql = 'SELECT id FROM Trybesmith.Products WHERE id = ?';
