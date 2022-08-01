@@ -1,8 +1,8 @@
-import express from 'express';
+import { Router } from 'express';
 import OrderController from '../controllers/order.controller';
 
-const OrderRoutes = express.Router();
+const OrderRoutes = Router();
 
-OrderRoutes.get('/', OrderController.getAll);
+OrderRoutes.get('/', OrderController.getAllOrders);
 
 export default OrderRoutes;

@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
-import OrderService from '../services/product.service';
+import OrderService from '../services/order.service';
 
-const OrderControler = {
-  getAll: async (_req: Request, res: Response) => {
-    const orders = await OrderService.getAll();
+const OrderController = {
+  getAllOrders: async (_req: Request, res: Response) => {
+    const orders = await OrderService.getAllOrders();
     res.json(orders);
   },
 };
 
-export default OrderControler;
+export default OrderController;

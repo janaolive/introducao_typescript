@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { Product } from '../interfaces/product.interface';
 import ProductService from '../services/product.service';
 
-const ProductControler = {
+const ProductController = {
   addProduct: async (req: Request, res: Response) => {
     const product = req.body as Product;  
     
@@ -16,4 +16,4 @@ const ProductControler = {
   },
 };
 
-export default ProductControler;
+export default ProductController;
